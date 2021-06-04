@@ -25,6 +25,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../my-context";
 import logo from "../images/logo.gif";
+import HeaderControls from "../components/headerComponent";
 
 const CouponDetail: React.FC = () => {
   const { authValues, logout, setShowTabs, couponDetail } = React.useContext(AuthContext);
@@ -40,36 +41,7 @@ const CouponDetail: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonGrid className="ion-text-center">
-            <IonRow>
-              <IonCol className="ion-text-left">
-                <IonImg
-                  src={logo}
-                  style={{ width: "220px", height: "40px" }}
-                ></IonImg>
-              </IonCol>
-              <IonCol className="ion-text-right">
-                <IonChip style={{ width: "140px", height: "40px" }}>
-                  <IonIcon
-                    style={{ width: "120px", height: "40px" }}
-                    icon={personCircleOutline}
-                  />
-                  <IonLabel>{authValues.user.id}</IonLabel>
-                  <IonIcon
-                    style={{ width: "120px", height: "40px" }}
-                    className="ion-text-end"
-                    icon={logOutOutline}
-                    onClick={() => {
-                      logout();
-                      history.replace("/login");
-                    }}
-                  />
-                </IonChip>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-        </IonToolbar>
+        <HeaderControls/>
         <IonItem>
           <IonLabel color="medium">
             <h1>Coupon Detail</h1>

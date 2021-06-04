@@ -24,6 +24,7 @@ import {
 } from "ionicons/icons";
 import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import HeaderControls from "../components/headerComponent";
 import logo from "../images/logo.gif";
 import AuthContext from "../my-context";
 
@@ -90,76 +91,10 @@ const Basket: React.FC = () => {
     }
   }, [coupons, selectedStore.code]);
 
-  const history = useHistory();
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-        <IonGrid className="ion-text-center">
-            <IonRow>
-              <IonCol
-                className="ion-text-left"
-                style={{ width: "80%", height: "100%" }}
-              >
-                <IonImg
-                  src={logo}
-                  //   style={{ width: "100%", height: "40px" }}
-                ></IonImg>
-              </IonCol>
-              <IonCol
-                className="ion-text-right"
-                style={{ width: "20%", height: "10%" }}
-              >
-                <IonChip
-                //  style={{ width: "60%", height: "100%" }}
-                >
-                  <IonIcon
-                    //  style={{ width: "100%", height: "100%" }}
-                    icon={personCircleOutline}
-                  />
-                  <IonLabel>{authValues.user.id}</IonLabel>
-                  <IonIcon
-                    //  style={{ width: "100%", height: "100%" }}
-                    className="ion-text-end"
-                    icon={logOutOutline}
-                    onClick={() => {
-                      logout();
-                      history.replace("/login");
-                    }}
-                  />
-                </IonChip>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-          {/* <IonGrid className="ion-text-center">
-            <IonRow>
-              <IonCol className="ion-text-left">
-                <IonImg
-                  src={logo}
-                  style={{ width: "220px", height: "40px" }}
-                ></IonImg>
-              </IonCol>
-              <IonCol className="ion-text-right">
-                <IonChip style={{ width: "140px", height: "40px" }}>
-                  <IonIcon
-                    style={{ width: "120px", height: "40px" }}
-                    icon={personCircleOutline}
-                  />
-                  <IonLabel>{authValues.user.id}</IonLabel>
-                  <IonIcon
-                    style={{ width: "120px", height: "40px" }}
-                    className="ion-text-end"
-                    icon={logOutOutline}
-                    onClick={() => {
-                      logout();
-                      history.replace("/login");
-                    }}
-                  />
-                </IonChip>
-              </IonCol>
-            </IonRow>
-          </IonGrid> */}
-        </IonToolbar>
+      <HeaderControls/>
         <IonGrid className="ion-text-center">
           <IonRow>
             <IonCol>
